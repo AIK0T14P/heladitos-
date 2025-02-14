@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Sabores - Helados La Delicia</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Control de Sabores Disponibles</h1>
+        
+        <div class="agregar-sabor-form">
+            <input type="text" id="nuevoSabor" placeholder="Ingrese nuevo sabor" class="input-sabor">
+            <button type="button" id="agregarSaborBtn" class="btn-agregar">Agregar Sabor</button>
+        </div>
+
+        <form id="saboresForm">
+            <div class="sabores-grid">
+                <% sabores.forEach(function(sabor) { %>
+                    <div class="sabor-item">
+                        <label>
+                            <input type="checkbox" name="sabores" value="<%= sabor %>" checked>
+                            <%= sabor %>
+                        </label>
+                    </div>
+                <% }); %>
+            </div>
+            <button type="button" id="actualizarBtn" class="btn-actualizar">Actualizar Sabores</button>
+        </form>
+    </div>
+
+    <script>
+        const socket = io();
+        const form = document.getElementById('saboresForm');
+        const actualizarBtn = document.getElementById('actualizarBtn');
+        const nuevoSaborInput = document.getElementById('nuevoSabor');
+        const agregarSaborBtn = document.getElementById('agregarSaborBtn');
+
+        agregarSaborBtn.addEventListener('click', function() {
+            const nuevoSabor = nuevoSaborInput.value.trim();
+            if (nuevoSabor) {
+                socket.emit('agregarSabor', nuevoSabor);
+                nuevoSaborInput.value = '';
+            }
+        });
+
+        socket.on('saborAgregado', (respuesta) => {
+            if (respuesta.exito) {
+                const saboresGrid = document.querySelector('.sabores-grid');
+                const nuevoSaborDiv = document.createElement('div');
+                nuevoSaborDiv.className = 'sabor-item';
+                nuevoSaborDiv.innerHTML = `
+                    <label>
+                        <input type="checkbox" name="sabores" value="${respuesta.sabor}" checked>
+                        ${respuesta.sabor}
+                    </label>
+                `;
+                saboresGrid.appendChild(nuevoSaborDiv);
+            } else {
+                alert('El sabor ya existe o no se pudo agregar');
+            }
+        });
+
+        actualizarBtn.addEventListener('click', function() {
+            const checkboxes = form.querySelectorAll('input[name="sabores"]:checked');
+            const saboresSeleccionados = Array.from(checkboxes).map(checkbox => checkbox.value);
+            
+            fetch('/actualizar-sabores', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ sabores: saboresSeleccionados })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Sabores actualizados correctamente');
+                } else {
+                    console.error('Error al actualizar sabores');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+        socket.on('sabores', (sabores) => {
+            const checkboxes = form.querySelectorAll('input[name="sabores"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = sabores.includes(checkbox.value);
+            });
+        });
+
+        nuevoSaborInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                agregarSaborBtn.click();
+            }
+        });
+    </script>
+
+    <style>
+        .agregar-sabor-form {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-sabor {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex-grow: 1;
+            max-width: 300px;
+        }
+
+        .btn-agregar {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-agregar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</body>
+</html>

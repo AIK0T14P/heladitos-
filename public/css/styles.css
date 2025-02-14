@@ -1,0 +1,400 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, #FFB6C1, #ADD8E6); /* Degradado de rosa a azul */
+    color: #333; /* Color de texto oscuro para contraste */
+    font-family: 'Poppins', sans-serif; /* Fuente que ya estás usando */
+}
+
+/* O si prefieres un color sólido, usa esto en lugar del degradado */
+body {
+    background-color: #98FF98; /* Fondo verde menta */
+    color: #333; /* Color de texto oscuro para contraste */
+}
+
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: red; /* Color de título relacionado con helados */
+}
+
+/* Estilos de los botones */
+.buttons {
+    margin: 15px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px; /* Aumentar espaciado */
+    margin: 5px;
+    border: none;
+    border-radius: 8px; /* Bordes más redondeados */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em; /* Tamaño de fuente aumentado */
+    transition: background-color 0.3s, transform 0.2s; /* Efecto de transformación */
+}
+
+.btn.mercadopago {
+    background-color: #00A859; /* Color de MercadoPago */
+}
+
+.btn.whatsapp {
+    background-color: #25D366; /* Color de WhatsApp */
+}
+
+.btn:hover {
+    opacity: 0.9; /* Efecto hover */
+    transform: scale(1.05); /* Aumentar tamaño al pasar el mouse */
+}
+
+
+/* Estilo para la lista de sabores seleccionados */
+#saboresSeleccionados {
+    margin-top: 30px;
+}
+
+#listaSabores {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilos para los elementos de la lista */
+#listaSabores li {
+    background-color: #ffe4e1; /* Color suave para cada sabor */
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Diseño responsivo */
+@media (min-width: 768px) {
+    #listaSabores {
+        display: flex;
+        flex-wrap: wrap; /* Permitir que los elementos se ajusten */
+        justify-content: center;
+    }
+
+    #listaSabores li {
+        width: calc(33.33% - 10px); /* Mostrar 3 por fila en pantallas grandes */
+        margin: 5px; /* Espaciado entre elementos */
+    }
+}
+
+@media (max-width: 767px) {
+    #listaSabores li {
+        width: 100%; /* Mostrar 1 por fila en móviles */
+    }
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente principal */
+}
+
+h1 {
+    font-family: 'Lobster', cursive; /* Fuente para títulos */
+    color: red; /* Color atractivo para el título */
+}
+
+p, li {
+    font-family: 'Poppins', sans-serif; /* Fuente para texto normal */
+    color: red; /* Color de texto */
+    font-weight: bold;
+}
+
+/* Estilo para los sabores */
+.lista-sabores li {
+    font-family: 'Poppins', sans-serif; /* Fuente atractiva */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Color de texto */
+    margin: 5px 0; /* Espaciado entre sabores */
+}
+
+/* Estilo para el texto de contacto */
+.contacto-texto {
+    font-family: 'Poppins', sans-serif; /* Fuente atractiva */
+    font-weight: bold; /* Negrita */
+    font-size: 1.2em; /* Tamaño de fuente más grande */
+    color: #ff6347; /* Color llamativo */
+    margin: 20px 0; /* Espaciado alrededor del texto */
+}
+
+/* Estilo para los botones */
+.btn.mercadopago {
+    background-color: yellow; /* Fondo amarillo para el botón */
+    color: #000; /* Color de texto negro */
+    font-weight: bold; /* Negrita */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.btn.mercadopago:hover {
+    background-color: #ffcc00; /* Color al pasar el mouse */
+}
+
+.lista-sabores li {
+    font-family: 'Poppins', sans-serif; /* Fuente atractiva */
+    font-weight: bold; /* Negrita */
+    color: #ff6347; /* Color llamativo relacionado con helados */
+    font-size: 1.2em; /* Tamaño de fuente más grande */
+    margin: 5px 0; /* Espaciado entre sabores */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Sombra para resaltar */
+}
+
+.navbar {
+    background-color: #ff6347; /* Color de fondo de la navbar */
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+}
+
+.navbar li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar img {
+    width: 30px; /* Tamaño del ícono */
+    height: auto;
+}
+
+
+.imagen-responsive {
+    width: 35%; /* Ocupa el 20% del ancho de la pantalla */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Asegura que la imagen se trate como un bloque */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+h2{
+    font-family: 'Lobster', cursive;
+    font-size: 35px;
+}
+.texto-container h2 {
+    font-family: 'Pacifico', cursive; /* Fuente atractiva para helados */
+    font-size: 2rem; /* Tamaño de fuente más grande */
+    animation: titilar 1s infinite alternate; /* Efecto de titilación */
+    background: linear-gradient(45deg, red,  #ff6347); /* Colores relacionados a helados */
+    -webkit-background-clip: text; /* Clip del fondo para el texto */
+    -webkit-text-fill-color: transparent; /* Texto transparente para mostrar el fondo */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para mejor legibilidad */
+}
+
+/* Animación de titilación */
+@keyframes titilar {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.nav-links {
+    list-style: none; /* Elimina puntos de la lista */
+    display: flex; /* Muestra los elementos en fila */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.nav-links li {
+    margin: 0 15px; /* Espaciado entre los elementos */
+}
+
+.nav-links a {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Elimina subrayado */
+}
+
+.social-icons {
+    display: flex; /* Muestra los iconos en fila */
+}
+
+.icono {
+    color: white; /* Color de los iconos */
+    font-size: 24px; /* Tamaño de los iconos */
+    margin-left: 10px; /* Espaciado entre iconos */
+    transition: color 0.3s; /* Transición suave para el hover */
+}
+
+.icono:hover {
+    color: #25D366; /* Color cuando se pasa el mouse sobre WhatsApp */
+}
+
+.icono:nth-child(2):hover {
+    color: #E1306C; /* Color cuando se pasa el mouse sobre Instagram */
+}
+
+.navbar {
+    background-color: #ff6347; /* Color de fondo de la navbar */
+    padding: 10px 20px; /* Espaciado */
+    display: flex; /* Muestra los elementos en fila */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.navbar {
+    background-color: #ff6347; /* Color de fondo de la navbar */
+    padding: 10px 20px; /* Espaciado */
+    display: flex; /* Muestra los elementos en fila */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas */
+}
+
+.nav-links {
+    list-style: none; /* Elimina puntos de la lista */
+    display: flex; /* Muestra los elementos en fila */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten */
+}
+
+.nav-links li {
+    margin: 0 15px; /* Espaciado entre los elementos */
+}
+
+.nav-links a {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Elimina subrayado */
+}
+
+.social-icons {
+    display: flex; /* Muestra los iconos en fila */
+    align-items: center; /* Centra verticalmente los iconos */
+}
+
+.icono {
+    color: white; /* Color de los iconos */
+    font-size: 24px; /* Tamaño de los iconos */
+    margin-left: 10px; /* Espaciado entre iconos */
+    transition: color 0.3s; /* Transición suave para el hover */
+}
+
+.icono:hover {
+    color: #25D366; /* Color cuando se pasa el mouse sobre WhatsApp */
+}
+
+.icono:nth-child(2):hover {
+    color: #E1306C; /* Color cuando se pasa el mouse sobre Instagram */
+}
+
+.whatsapp-text {
+    color: #25D366; /* Color verde para WhatsApp */
+    margin-left: 5px; /* Espaciado entre el icono y el texto */
+}
+
+.instagram-text {
+    color: #E1306C; /* Color violeta para Instagram */
+    margin-left: 5px; /* Espaciado entre el icono y el texto */
+}
+
+.brand {
+    color: white; /* Color del texto de la marca */
+    font-family: 'Lobster', cursive;
+    font-size: 24px; /* Tamaño del texto */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea a la izquierda */
+        width: 100%; /* Ocupa todo el ancho */
+        padding: 10px 0; /* Espaciado vertical */
+    }
+
+    .nav-links li {
+        margin: 5px 0; /* Espaciado vertical entre elementos */
+    }
+
+    .social-icons {
+        margin-top: 10px; /* Espaciado superior para iconos sociales */
+    }
+}
+.icono {
+    color: white; /* Color de los iconos */
+    font-size: 24px; /* Tamaño de los iconos */
+    margin-left: 10px; /* Espaciado entre iconos */
+    transition: color 0.3s; /* Transición suave para el hover */
+}
+
+.icono:hover {
+    color: #25D366; /* Color cuando se pasa el mouse sobre WhatsApp */
+}
+
+.icono:nth-child(2):hover {
+    color: #E1306C; /* Color cuando se pasa el mouse sobre Instagram */
+}
+
+.whatsapp-text {
+    color: #25D366; /* Color verde para WhatsApp */
+    margin-left: 5px; /* Espaciado entre el icono y el texto */
+    font-family: 'Lobster', cursive;
+
+}
+
+.instagram-text {
+    color: #E1306C; /* Color violeta para Instagram */
+    margin-left: 5px; /* Espaciado entre el icono y el texto */
+        font-family: 'Lobster', cursive;
+
+}
+
+.brand {
+    color: white; /* Color del texto de la marca */
+    font-size: 24px; /* Tamaño del texto */
+}
+
+footer {
+    background-color: #ff6347; /* Color de fondo oscuro */
+    color: white; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 20px; /* Espaciado interno */
+    position: relative; /* Posicionamiento relativo */
+    bottom: 0; /* Alinear al fondo */
+    width: 100%; /* Ancho completo */
+    font-family: 'Lobster', cursive; /* Fuente */
+    border-top: 5px solid, cyan; /* Borde superior amarillo */
+}
+
+
+
+footer p {
+    margin: 0; /* Eliminar márgenes */
+    font-size: 22px; /* Tamaño de fuente */
+    font-family: 'Lobster', cursive;
+}
+
+footer a {
+    color: #ffcc00; /* Color de enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Negrita */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    footer {
+        font-size: 20px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 15px; /* Menos espaciado en pantallas pequeñas */
+    }
+}
